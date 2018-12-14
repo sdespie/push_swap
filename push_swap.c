@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 18:01:37 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/13 18:27:07 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/14 12:08:20 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ int			main(int argc, char **argv)
 	fill_pile(a, c, data, argv);
 	if (data->error_p != 0)
 		return (ft_free(a, b, c, data));
-	printf("easy\n");
 	easy_order(c, data);
-	printf("solve\n");
 	solve(a, b, c, data);
 	ft_free_end(a, b, c, data);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:22:55 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/13 18:25:33 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/14 15:51:43 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,28 @@ static int	sort(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		sort_ft(a, b, data, "pa");
 		sort_ft(a, b, data, "ra");
 	}
-	else if (b->pile[1] == c->pile[data->pos] && ++data->pos && ++check)
+	else if (a->pile[2] == c->pile[data->pos] && ++data->pos && ++check)
+	{
+		sort_ft(a, b, data, "pb");
+		sort_ft(a, b, data, "sa");
+		sort_ft(a, b, data, "ra");
+		sort_ft(a, b, data, "pa");
+	}
+	else if (a->pile[3] == c->pile[data->pos] && ++data->pos && ++check)
+	{
+		sort_ft(a, b, data, "pb");
+		sort_ft(a, b, data, "pb");
+		sort_ft(a, b, data, "sa");
+		sort_ft(a, b, data, "ra");
+		sort_ft(a, b, data, "pa");
+		sort_ft(a, b, data, "pa");
+	}
+/*	else if (b->pile[1] == c->pile[data->pos] && ++data->pos && ++check)
 	{
 		sort_ft(a, b, data, "sb");
 		sort_ft(a, b, data, "pa");
 		sort_ft(a, b, data, "ra");
-	}
+	}*/
 	return (check);
 }
 
@@ -62,14 +78,8 @@ static void	quick_sort_a(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 
 	nbr_ra = 0;
 	i = -1;
-	printf("===============================\n");
 	data->pivot = data->pos + data->nbr / 2;
-	max = c->pile[data->pos + data->nbr];
-	printf("pivot = %d (", data->pivot);
-	printf("pos = %d + ", data->pos);
-	printf("nbr = %d / 2) \n", data->nbr);
-	printf("val pivot = %d\n", c->pile[data->pos]);
-	printf("max = %d\n\n", max);
+	max = c->pile[data->pos + data->nbr - 1];
 	while (++i < data->nbr * 1.1 && !(data->pos && a->pile[0] == c->pile[0])
 			&& a->pile[0] <= max && need_more_a(a, c, data, nbr_ra))
 	{
@@ -100,7 +110,7 @@ void		quick_sort_b(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	size = b->size;
 	i = -1;
 	data->pivot2 = size / 2 + data->pos;
-	while (++i < size)
+	while (++i < size)// && need_more_b(b, c, data, c->pile[data->pivot2]))
 	{
 		while (sort(a, b, c, data))
 			;
@@ -129,7 +139,7 @@ void		solve(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 			mini_sort(a, b, c, data);
 		else if (!is_sorted(*a, *c))
 		{
-			printf("lets go quick a\n");
+			data->nbr = data->size_max - data->pos;
 			quick_sort_a(a, b, c, data);
 			data->nbr = data->nbr2 / 2;
 			data->nbr2 = data->nbr;

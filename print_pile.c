@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 16:34:21 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/13 15:35:22 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/14 14:31:43 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	p_color(t_pile *a, t_pile *b, t_data *data)
 {
 	int i;
 
-	usleep(10000 * (1 + (10 - data->speed + 1) * (10 - data->speed + 1) / 2));
+	usleep(4000 * (1 + (10 - data->speed + 1) * (10 - data->speed + 1)));
 	system("clear");
 	i = 0;
 	printf("\n");
