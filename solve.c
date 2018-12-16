@@ -50,7 +50,6 @@ static int	sort(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		sort_ft(a, b, data, "pb");
 		sort_ft(a, b, data, "sa");
 		sort_ft(a, b, data, "ra");
-		sort_ft(a, b, data, "pa");
 	}
 	else if (a->pile[3] == c->pile[data->pos] && ++data->pos && ++check)
 	{
@@ -58,15 +57,7 @@ static int	sort(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		sort_ft(a, b, data, "pb");
 		sort_ft(a, b, data, "sa");
 		sort_ft(a, b, data, "ra");
-		sort_ft(a, b, data, "pa");
-		sort_ft(a, b, data, "pa");
 	}
-/*	else if (b->pile[1] == c->pile[data->pos] && ++data->pos && ++check)
-	{
-		sort_ft(a, b, data, "sb");
-		sort_ft(a, b, data, "pa");
-		sort_ft(a, b, data, "ra");
-	}*/
 	return (check);
 }
 
@@ -87,13 +78,16 @@ static void	quick_sort_a(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 			sort_ft(a, b, data, "pb");
 		else
 		{
-			sort_ft(a, b, data, "ra");
+			/**///sort_ft(a, b, data, "ra");
+			smart_ra(a, b, c, data, data->pos + data->nbr / 4);
 			nbr_ra++;
 		}
 	}
+/**/	data->pivot2 = b->size / 2 + data->pos;
 	if (data->pos)
 		while (a->pile[a->size - 1] != c->pile[data->pos - 1])
-			sort_ft(a, b, data, "rra");
+/**/			//sort_ft(a, b, data, "rra");
+			smart_rra(a, b, c, data);
 	if (b->size)
 		quick_sort_b(a, b, c, data);
 }
@@ -110,7 +104,7 @@ void		quick_sort_b(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	size = b->size;
 	i = -1;
 	data->pivot2 = size / 2 + data->pos;
-	while (++i < size)// && need_more_b(b, c, data, c->pile[data->pivot2]))
+	while (++i < size && need_more_b(b, c, data, c->pile[data->pivot2]))
 	{
 		while (sort(a, b, c, data))
 			;

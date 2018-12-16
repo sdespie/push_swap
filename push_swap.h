@@ -72,4 +72,6 @@ void			print_piles(t_pile *a, t_pile *b);
 void			p_color(t_pile *a, t_pile *b, t_data *data);
 int				need_more_a(t_pile *a, t_pile *c, t_data *data, int nbr_ra);
 int				need_more_b(t_pile *a, t_pile *c, t_data *data, int pivot);
+void			smart_rra(t_pile *a, t_pile *b, t_pile *c, t_data *data);
+void			smart_ra(t_pile *a, t_pile *b, t_pile *c, t_data *data, int md);
 #endif

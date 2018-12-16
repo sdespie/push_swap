@@ -14,15 +14,15 @@
 
 static void	option(t_data *data, char **argv)
 {
-	if (argv[1][0] == '_')
+	if (argv[1][0] == '-' && argv[1][1] == 'o')
 	{
 		data->start_index = 2;
 		if (ft_strchr(argv[1], 'v'))
 			data->option = 2;
 		if (ft_strchr(argv[1], 'm'))
 			data->opt_med = 1;
-		if (ft_isdigit(argv[1][1]))
-			data->speed = argv[1][1] - 48;
+		if (ft_isdigit(argv[1][2]))
+			data->speed = argv[1][2] - 48;
 
 	}
 }
@@ -40,7 +40,7 @@ int			main(int argc, char **argv)
 	data = malloc(sizeof(t_data));
 	if (!(a && b && c && data))
 		return (ft_free(a, b, c, data));
-	data->start_index = argv[1][0] == '_' ? 2 : 1;
+	data->start_index = argv[1][0] == '-' && argv[1][1] == 'o' ? 2 : 1;
 	data->size_max = argc - data->start_index;
 	if (!init_struct(a, b, c, data))
 		return (ft_free_end(a, b, c, data));
