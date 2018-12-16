@@ -35,41 +35,32 @@ int		need_more_b(t_pile *b, t_pile *c, t_data *data, int pivot)
 
 	check = 0;
 	i = -1;
-	while (++i < b->size)// && ft_printf("pivot2 = %d, b->[0] = %d\n", pivot, b->pile[i]))
+	while (++i < b->size)
 		if (b->pile[i] >= pivot)
 		{
 			check++;
 			break;
 		}
-//	if (check == 0)
-//		ft_printf("USEFULL=============\n");
 	return (check);
 }
 
 void	smart_rra(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 {
-	if (b->pile[b->size - 1] >= data->pivot2)
+	if (b->pile[b->size - 1] > data->pivot2)
 		sort_ft(a, b, data, "rrr");
 	else
 		sort_ft(a, b, data, "rra");
 }
 
-int		average_pile(t_pile *b)
+void	smart_rra2(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 {
-	int	i;
-	int	sum;
-
-	sum = 0;
-	i =-1;
-	while (++i < b->size)
-		sum += b->pile[i];
-	if (i > 0)
-		return (sum / i);
+	if (b->pile[b->size - 1] < data->pivot2)
+		sort_ft(a, b, data, "rrr");
 	else
-		return (sum);
+		sort_ft(a, b, data, "rra");
 }
 
-void	smart_ra(t_pile *a, t_pile *b, t_pile *c, t_data *data, int pivot)
+void	smart_ra1(t_pile *a, t_pile *b, t_pile *c, t_data *data, int pivot)
 {
 	if (b->pile[0] > c->pile[pivot])
 		sort_ft(a, b, data, "rr");

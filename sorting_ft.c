@@ -101,6 +101,6 @@ void	sort_ft(t_pile *a, t_pile *b, t_data *data, char *mode)
 	else if (!ft_strcmp(mode, "rrr") && ++check)
 		rev_rotate(a);
 	!ft_strcmp(mode, "rrr") && ++check ? rev_rotate(b) : 0;
-	data->option == 0 ? ft_printf("%s\n", mode) : p_color(a, b, data);
+	print_mode(a, b, data, mode);
 	check == 0 ? data->error_c++ : 0;
 }

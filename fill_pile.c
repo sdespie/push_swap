@@ -32,22 +32,21 @@ static void	check_multiple(t_pile *a, t_data *data)
 	}
 }
 
-void		fill_pile(t_pile *a, t_pile *c, t_data *data, char **argv)
+void		fill_pile(t_pile *a, t_pile *c, t_data *data)
 {
 	int	i;
 
 	i = -1;
-	data->p_max = ABS(ft_atoi2(argv[data->start_index], data));
+	data->p_max = ABS(ft_atoi2(data->argv[data->start_index], data));
 	while (++i < a->size)
 	{
-		if (ft_atoi2(argv[i + data->start_index], data)\
-			== ft_atol2(argv[i + data->start_index], data))
+		if (ft_atoi2(data->argv[i + data->start_index], data)\
+			== ft_atol2(data->argv[i + data->start_index], data))
 		{
-			a->pile[i] = ft_atoi(argv[i + data->start_index]);
+			a->pile[i] = ft_atoi(data->argv[i + data->start_index]);
 			c->pile[i] = a->pile[i];
 			if (ABS(a->pile[i]) > data->p_max)
 				data->p_max = ABS(a->pile[i]);
-
 		}
 		else
 		{

@@ -46,10 +46,14 @@ typedef struct	s_data
 	int		opt_med;
 	int		speed;
 	int		p_max;
+	int		mode;
+	int		eval1;
+	int		eval2;
+	char	**argv;
 }				t_data;
 
 int				init_struct(t_pile *a, t_pile *b, t_pile *c, t_data *data);
-void			fill_pile(t_pile *a, t_pile *c, t_data *data, char **argv);
+void			fill_pile(t_pile *a, t_pile *c, t_data *data);
 void			easy_order(t_pile *c, t_data *data);
 void			ft_swap(int *a, int *b);
 int				ft_atoi(const char *c);
@@ -73,5 +77,10 @@ void			p_color(t_pile *a, t_pile *b, t_data *data);
 int				need_more_a(t_pile *a, t_pile *c, t_data *data, int nbr_ra);
 int				need_more_b(t_pile *a, t_pile *c, t_data *data, int pivot);
 void			smart_rra(t_pile *a, t_pile *b, t_pile *c, t_data *data);
-void			smart_ra(t_pile *a, t_pile *b, t_pile *c, t_data *data, int md);
+void			smart_rra2(t_pile *a, t_pile *b, t_pile *c, t_data *data);
+void			smart_ra1(t_pile *a, t_pile *b, t_pile *c, t_data *data, int md);
+void			smart_ra2(t_pile *a, t_pile *b, t_pile *c, t_data *data, int md);
+void			solve2(t_pile *a, t_pile *b, t_pile *c, t_data *data);
+int				while_mode(t_pile *a, t_pile *b, t_pile *c, t_data *data);
+void			print_mode(t_pile *a, t_pile *b, t_data *data, char *mode);
 #endif

@@ -74,20 +74,12 @@ static void	quick_sort_a(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	while (++i < data->nbr * 1.1 && !(data->pos && a->pile[0] == c->pile[0])
 			&& a->pile[0] <= max && need_more_a(a, c, data, nbr_ra))
 	{
-		if (a->pile[0] <= c->pile[data->pivot])
-			sort_ft(a, b, data, "pb");
-		else
-		{
-			/**///sort_ft(a, b, data, "ra");
-			smart_ra(a, b, c, data, data->pos + data->nbr / 4);
-			nbr_ra++;
-		}
+		while_mode(a, b, c, data);
 	}
-/**/	data->pivot2 = b->size / 2 + data->pos;
+	data->pivot2 = b->size / 2 + data->pos;
 	if (data->pos)
 		while (a->pile[a->size - 1] != c->pile[data->pos - 1])
-/**/			//sort_ft(a, b, data, "rra");
-			smart_rra(a, b, c, data);
+			data->mode % 2 == 1 ? smart_rra(a, b, c, data) : smart_rra2(a, b, c, data);
 	if (b->size)
 		quick_sort_b(a, b, c, data);
 }
@@ -141,3 +133,4 @@ void		solve(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		}
 	}
 }
+

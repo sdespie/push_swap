@@ -14,10 +14,10 @@ NAME = libftswap
 SRC = init_struct.c fill_pile.c easy_order.c swap.c\
 	  sorting_ft.c solve.c sort_short.c ft_atoi_long.c\
 	  get_next_line.c free.c mini_sort.c print_pile.c\
-	  utils.c
+	  utils.c mode_mgmt.c
 LIB = libftswap.a
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)

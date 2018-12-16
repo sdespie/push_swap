@@ -23,7 +23,6 @@ static void	option(t_data *data, char **argv)
 			data->opt_med = 1;
 		if (ft_isdigit(argv[1][2]))
 			data->speed = argv[1][2] - 48;
-
 	}
 }
 
@@ -44,12 +43,13 @@ int			main(int argc, char **argv)
 	data->size_max = argc - data->start_index;
 	if (!init_struct(a, b, c, data))
 		return (ft_free_end(a, b, c, data));
+	data->argv = argv;
 	option(data, argv);
-	fill_pile(a, c, data, argv);
+	fill_pile(a, c, data);
 	if (data->error_p != 0)
 		return (ft_free(a, b, c, data));
 	easy_order(c, data);
-	solve(a, b, c, data);
+	solve2(a, b, c, data);
 	ft_free_end(a, b, c, data);
 	return (0);
 }

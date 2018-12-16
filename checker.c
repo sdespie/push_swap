@@ -39,7 +39,8 @@ int			main(int argc, char **argv)
 	data->size_max = argc - 1;
 	if (!init_struct(a, b, c, data))
 		return (ft_free(a, b, c, data));
-	fill_pile(a, c, data, argv);
+	data->argv = argv;
+	fill_pile(a, c, data);
 	easy_order(c, data);
 	if (argc > 1)
 	{
