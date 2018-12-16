@@ -60,7 +60,6 @@ void		solve2(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	else
 		data->mode = 2;
 	solve(a, b, c, data);
-	ft_printf("data->mode = %d, eval 1 =%d, eval2 = %d\n", data->mode, data->eval1, data->eval2);
 }
 
 void		print_mode(t_pile *a, t_pile *b, t_data *data, char *mode)

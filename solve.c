@@ -69,11 +69,15 @@ static void	quick_sort_a(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 
 	nbr_ra = 0;
 	i = -1;
-	data->pivot = data->pos + data->nbr / 2;
+	data->pivot = data->pos + (data->nbr + 1) / 2;
 	max = c->pile[data->pos + data->nbr - 1];
+	//	ft_printf("pos = %d, nbr = %d\n", data->pos, data->nbr);
+	//	ft_printf("pivota = %d, max = %d\n", data->pivot, max);
 	while (++i < data->nbr * 1.1 && !(data->pos && a->pile[0] == c->pile[0])
-			&& a->pile[0] <= max && need_more_a(a, c, data, nbr_ra))
+			&& need_more_a(a, c, data, nbr_ra) && a->pile[0] <= max)
 	{
+	//	ft_printf("pos = %d, nbr = %d\n", data->pos, data->nbr);
+	//	ft_printf("pivota = %d, max = %d\n", data->pivot, max);
 		while_mode(a, b, c, data);
 	}
 	data->pivot2 = b->size / 2 + data->pos;
@@ -105,11 +109,14 @@ void		quick_sort_b(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		else if (++nb_rb)
 			sort_ft(a, b, data, "rb");
 	}
+	data->pivot2 = size / 2 + data->pos;
 	if (b->size)
 		quick_sort_b(a, b, c, data);
 	data->nbr = nb_pa;
+//	ft_printf("=========1 nbr = %d\n", data->nbr);
 	quick_sort_a(a, b, c, data);
 	data->nbr = nb_rb;
+//	ft_printf("=========2 nbr = %d\n", data->nbr);
 	quick_sort_a(a, b, c, data);
 }
 
@@ -126,6 +133,7 @@ void		solve(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		else if (!is_sorted(*a, *c))
 		{
 			data->nbr = data->size_max - data->pos;
+//			ft_printf("=========0 nbr = %d\n", data->nbr);
 			quick_sort_a(a, b, c, data);
 			data->nbr = data->nbr2 / 2;
 			data->nbr2 = data->nbr;
@@ -133,4 +141,3 @@ void		solve(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		}
 	}
 }
-
