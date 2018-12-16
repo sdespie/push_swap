@@ -43,7 +43,7 @@ typedef struct	s_data
 	int		option;
 	int		color;
 	int		start_index;
-	int		opt_med;
+	int		m;
 	int		speed;
 	int		p_max;
 	int		mode;

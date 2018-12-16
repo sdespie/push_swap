@@ -30,7 +30,7 @@ int		init_struct(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	data->option = 0;
 	data->color = 0;
 	data->start_index = 1;
-	data->opt_med = 0;
+	data->m = 0;
 	data->speed = 4;
 	data->eval1 = 0;
 	data->eval2 = 0;

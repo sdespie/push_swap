@@ -20,7 +20,7 @@ static void	option(t_data *data, char **argv)
 		if (ft_strchr(argv[1], 'v'))
 			data->option = 2;
 		if (ft_strchr(argv[1], 'm'))
-			data->opt_med = 1;
+			data->m = 1;
 		if (ft_isdigit(argv[1][2]))
 			data->speed = argv[1][2] - 48;
 	}
