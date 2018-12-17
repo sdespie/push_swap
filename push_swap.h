@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 16:28:16 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/14 14:02:21 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/17 10:14:42 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,12 @@ void			print_piles(t_pile *a, t_pile *b);
 void			p_color(t_pile *a, t_pile *b, t_data *data);
 int				need_more_a(t_pile *a, t_pile *c, t_data *data, int nbr_ra);
 int				need_more_b(t_pile *a, t_pile *c, t_data *data, int pivot);
-void			smart_rra(t_pile *a, t_pile *b, t_pile *c, t_data *data);
-void			smart_rra2(t_pile *a, t_pile *b, t_pile *c, t_data *data);
-void			smart_ra1(t_pile *a, t_pile *b, t_pile *c, t_data *data, int md);
-void			smart_ra2(t_pile *a, t_pile *b, t_pile *c, t_data *data, int md);
+void			s_rra(t_pile *a, t_pile *b, t_pile *c, t_data *data);
+void			s_rra2(t_pile *a, t_pile *b, t_pile *c, t_data *data);
+void			smart_ra1(t_pile *a, t_pile *b, t_data *data, int md);
+void			smart_ra2(t_pile *a, t_pile *b, t_data *data, int md);
 void			solve2(t_pile *a, t_pile *b, t_pile *c, t_data *data);
 int				while_mode(t_pile *a, t_pile *b, t_pile *c, t_data *data);
 void			print_mode(t_pile *a, t_pile *b, t_data *data, char *mode);
+void			pbsara(t_pile *a, t_pile *b, t_data *data);
 #endif

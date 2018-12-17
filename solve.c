@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/09 11:22:55 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/14 15:51:43 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/17 10:02:53 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,11 @@ static int	sort(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 		sort_ft(a, b, data, "ra");
 	}
 	else if (a->pile[2] == c->pile[data->pos] && ++data->pos && ++check)
-	{
-		sort_ft(a, b, data, "pb");
-		sort_ft(a, b, data, "sa");
-		sort_ft(a, b, data, "ra");
-	}
+		pbsara(a, b, data);
 	else if (a->pile[3] == c->pile[data->pos] && ++data->pos && ++check)
 	{
 		sort_ft(a, b, data, "pb");
-		sort_ft(a, b, data, "pb");
-		sort_ft(a, b, data, "sa");
-		sort_ft(a, b, data, "ra");
+		pbsara(a, b, data);
 	}
 	return (check);
 }
@@ -79,14 +73,13 @@ static void	quick_sort_a(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	data->pivot2 = b->size / 2 + data->pos;
 	if (data->pos)
 		while (a->pile[a->size - 1] != c->pile[data->pos - 1])
-			data->mode % 2 == 1 ? smart_rra(a, b, c, data) : smart_rra2(a, b, c, data);
+			data->mode % 2 == 1 ? s_rra(a, b, c, data) : s_rra2(a, b, c, data);
 	if (b->size)
 		quick_sort_b(a, b, c, data);
 }
 
 void		quick_sort_b(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 {
-	int	i;
 	int	size;
 	int	nb_pa;
 	int	nb_rb;
@@ -94,9 +87,8 @@ void		quick_sort_b(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 	nb_pa = 0;
 	nb_rb = 0;
 	size = b->size;
-	i = -1;
 	data->pivot2 = size / 2 + data->pos;
-	while (++i < size && need_more_b(b, c, data, c->pile[data->pivot2]))
+	while (need_more_b(b, c, data, c->pile[data->pivot2]))
 	{
 		while (sort(a, b, c, data))
 			;

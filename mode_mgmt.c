@@ -6,24 +6,24 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 22:44:14 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/13 15:17:34 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/17 10:16:37 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		while_mode(t_pile *a, t_pile *b, t_pile *c, t_data *data)
+int			while_mode(t_pile *a, t_pile *b, t_pile *c, t_data *data)
 {
-		if (a->pile[0] <= c->pile[data->pivot])
-			sort_ft(a, b, data, "pb");
+	if (a->pile[0] <= c->pile[data->pivot])
+		sort_ft(a, b, data, "pb");
+	else
+	{
+		if (data->mode == -1 || data->mode == 1)
+			smart_ra1(a, b, data, c->pile[data->pos + data->nbr / 4]);
 		else
-		{
-			if (data->mode == -1 || data->mode == 1)
-				smart_ra1(a, b, c, data, data->pos + data->nbr / 4);
-			else
-				smart_ra2(a, b, c, data, data->pos + data->nbr / 4);
-			return (1);
-		}
+			smart_ra2(a, b, data, c->pile[data->pos + data->nbr / 4]);
+		return (1);
+	}
 	return (0);
 }
 

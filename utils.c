@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 16:19:01 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/14 14:25:34 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/17 09:59:47 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		need_more_a(t_pile *a, t_pile *c, t_data *data, int nbr_ra)
 		if (a->pile[i] < c->pile[data->pivot])
 		{
 			check++;
-			break;
+			break ;
 		}
 	return (check);
 }
@@ -39,38 +39,22 @@ int		need_more_b(t_pile *b, t_pile *c, t_data *data, int pivot)
 		if (b->pile[i] >= pivot)
 		{
 			check++;
-			break;
+			break ;
 		}
 	return (check);
 }
 
-void	smart_rra(t_pile *a, t_pile *b, t_pile *c, t_data *data)
+void	smart_ra1(t_pile *a, t_pile *b, t_data *data, int pivot)
 {
-	if (b->pile[b->size - 1] > data->pivot2)
-		sort_ft(a, b, data, "rrr");
-	else
-		sort_ft(a, b, data, "rra");
-}
-
-void	smart_rra2(t_pile *a, t_pile *b, t_pile *c, t_data *data)
-{
-	if (b->pile[b->size - 1] < data->pivot2)
-		sort_ft(a, b, data, "rrr");
-	else
-		sort_ft(a, b, data, "rra");
-}
-
-void	smart_ra1(t_pile *a, t_pile *b, t_pile *c, t_data *data, int pivot)
-{
-	if (b->pile[0] > c->pile[pivot])
+	if (b->pile[0] > pivot)
 		sort_ft(a, b, data, "rr");
 	else
 		sort_ft(a, b, data, "ra");
 }
 
-void	smart_ra2(t_pile *a, t_pile *b, t_pile *c, t_data *data, int pivot)
+void	smart_ra2(t_pile *a, t_pile *b, t_data *data, int pivot)
 {
-	if (b->pile[0] < c->pile[pivot])
+	if (b->pile[0] < pivot)
 		sort_ft(a, b, data, "rr");
 	else
 		sort_ft(a, b, data, "ra");

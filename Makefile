@@ -6,7 +6,7 @@
 #    By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/16 21:37:19 by sde-spie          #+#    #+#              #
-#    Updated: 2018/12/13 16:25:05 by sde-spie         ###   ########.fr        #
+#    Updated: 2018/12/17 09:47:22 by sde-spie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftswap
 SRC = init_struct.c fill_pile.c easy_order.c swap.c\
 	  sorting_ft.c solve.c sort_short.c ft_atoi_long.c\
 	  get_next_line.c free.c mini_sort.c print_pile.c\
-	  utils.c mode_mgmt.c
+	  utils.c utils2.c mode_mgmt.c
 LIB = libftswap.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address

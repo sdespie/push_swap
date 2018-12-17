@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/02 18:01:37 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/14 12:08:20 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/17 09:15:32 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static void	option(t_data *data, char **argv)
 			data->m = 1;
 		if (ft_isdigit(argv[1][2]))
 			data->speed = argv[1][2] - 48;
+		if (ft_strchr(argv[1], 'c'))
+			data->color = 1;
 	}
 }
 

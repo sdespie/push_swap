@@ -6,7 +6,7 @@
 /*   By: sde-spie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/11 21:50:01 by sde-spie          #+#    #+#             */
-/*   Updated: 2018/12/13 12:17:10 by sde-spie         ###   ########.fr       */
+/*   Updated: 2018/12/17 10:24:56 by sde-spie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ int			main(int argc, char **argv)
 			return (ft_free(a, b, c, data));
 		is_sorted(*a, *c) ? ft_printf("OK\n") : ft_printf("KO\n");
 	}
-	ft_free_end(a, b, c, data);
-	return (0);
+	return (ft_free_end(a, b, c, data));
 }
