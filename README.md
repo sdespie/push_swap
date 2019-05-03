@@ -53,7 +53,7 @@ Tested on OS X 10.11.
 ### `checker`
 
 ```
-Usage: ARG=`ruby -e "puts (1..50).to_a.shuffle.join(' ')"``; ./push_swap $ARG | ./checker $ARG
+Usage: ARG=`ruby -e "puts (1..50).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker $ARG
 ```
 
 ### `push_swap`
