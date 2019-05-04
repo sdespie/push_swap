@@ -69,3 +69,7 @@ Usage: ./push_swap [-o[speed][v][m][c]]
     c     :
         Display with different colors for colorblind persons.
 ```
+
+## Visualisation
+
+![visu](/pushswap.gif)
